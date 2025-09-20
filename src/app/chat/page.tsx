@@ -60,7 +60,7 @@ export default function RAGChatBot() {
                 })}
               </div>
             ))}
-            {status === "submitted" || (status === "streaming" && <Loader />)}
+            {(status === "submitted" || status === "streaming") && <Loader />}
           </ConversationContent>
           <ConversationScrollButton />
         </Conversation>
