@@ -4,12 +4,6 @@ import { db } from "./db-config";
 import { documents } from "./db-schema";
 import { generateEmbedding } from "./embeddings";
 
-export interface SearchResult {
-  id: number;
-  content: string;
-  similarity: number;
-}
-
 /**
  * Search for similar documents using Drizzle ORM with cosineDistance
  */
@@ -17,7 +11,7 @@ export async function searchDocuments(
   query: string,
   limit: number = 5,
   threshold: number = 0.5
-): Promise<SearchResult[]> {
+) {
   // Generate embedding for the search query
   const embedding = await generateEmbedding(query);
 
